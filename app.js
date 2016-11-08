@@ -6,7 +6,7 @@ var express = require("express"),
     middleware = require('./middleware');
 
 // Connection to DB
-mongoose.connect('mongodb://foodorder:foodorder@ds147777.mlab.com:47777/pedidos', function(err, res) {
+mongoose.connect(process.env.dburl, function(err, res) {
     if (err) throw err;
     console.log('Connected to Database');
 });
@@ -50,7 +50,7 @@ var routes = express.Router();
 
 routes.route('/users')
     .get(middleware.ensureAuthenticated, userCtrl.findAllUsers)
-    .post(userCtrl.addUser);
+    .post(middleware.ensureAuthenticated,userCtrl.addUser);
 
 routes.route('/users/:id')
     .get(middleware.ensureAuthenticated, userCtrl.findById)
@@ -61,7 +61,7 @@ routes.route('/login')
     .post(authCtrl.login);
 
 routes.route('/keys')
-    .post(authCtrl.addkey);
+    .post(middleware.ensureAuthenticated,authCtrl.addkey);
 
 routes.route('/keys/:id')
     .delete(middleware.ensureAuthenticated, authCtrl.deleteKey);
