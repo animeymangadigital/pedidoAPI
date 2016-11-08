@@ -6,7 +6,7 @@ var express = require("express"),
     middleware = require('./middleware');
 
 // Connection to DB
-mongoose.connect(process.env.dburl, function(err, res) {
+mongoose.connect('mongodb://foodorder:foodorder@ds147777.mlab.com:47777/pedidos', function(err, res) {
     if (err) throw err;
     console.log('Connected to Database');
 });
@@ -50,7 +50,7 @@ var routes = express.Router();
 
 routes.route('/users')
     .get(middleware.ensureAuthenticated, userCtrl.findAllUsers)
-    .post(middleware.ensureAuthenticated, userCtrl.addUser);
+    .post(userCtrl.addUser);
 
 routes.route('/users/:id')
     .get(middleware.ensureAuthenticated, userCtrl.findById)
@@ -61,7 +61,7 @@ routes.route('/login')
     .post(authCtrl.login);
 
 routes.route('/keys')
-    .post(middleware.ensureAuthenticated, authCtrl.addkey);
+    .post(authCtrl.addkey);
 
 routes.route('/keys/:id')
     .delete(middleware.ensureAuthenticated, authCtrl.deleteKey);
@@ -71,9 +71,9 @@ routes.route('/ciclos')
     .post(middleware.ensureAuthenticated, cicloCtrl.addCiclo);
 
 routes.route('/ciclos/:id')
-    .get(middleware.ensureAuthenticated, userCtrl.findById)
-    .put(middleware.ensureAuthenticated, userCtrl.updateCiclo)
-    .delete(middleware.ensureAuthenticated, userCtrl.deleteCiclo);
+    .get(middleware.ensureAuthenticated, cicloCtrl.findById)
+    .put(middleware.ensureAuthenticated, cicloCtrl.updateCiclo)
+    .delete(middleware.ensureAuthenticated, cicloCtrl.deleteCiclo);
 
 routes.route('/minutas')
     .get(middleware.ensureAuthenticated, minutaCtrl.findAllMinutas)
