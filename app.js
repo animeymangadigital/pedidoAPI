@@ -3,6 +3,7 @@ var express = require("express"),
     bodyParser = require("body-parser"),
     methodOverride = require("method-override"),
     mongoose = require('mongoose'),
+    cors = require('cors'),
     middleware = require('./middleware');
 
 // Connection to DB
@@ -18,12 +19,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(methodOverride());
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
+app.use(cors());
 
 // Import Models and controllers
 var modelUser = require('./models/users')(app, mongoose);
