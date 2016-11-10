@@ -33,6 +33,7 @@ exports.addProducto = function(req, res) {
         de13a17: req.body.de13a17,
         de18a49: req.body.de18a49,
         unidad: req.body.unidad,
+        type: req.body.type,
         minutaId: req.body.minutaId,
         updated_at: moment()
     });
@@ -54,6 +55,7 @@ exports.updateProducto = function(req, res) {
         producto.de13a17 = req.body.de13a17;
         producto.de18a49 = req.body.de18a49;
         producto.unidad = req.body.unidad;
+        producto.type = req.body.type;
         producto.minutaId = req.body.minutaId;
         producto.updated_at = moment();
 

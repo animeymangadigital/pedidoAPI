@@ -46,7 +46,7 @@ exports.addMinuta = function(req, res) {
 exports.updateMinuta = function(req, res) {
     Minutas.findById(req.params.id, function(err, minuta) {
         minuta.title = req.body.title;
-        minuta.serieId = req.body.cicloId;
+        minuta.cicloId = req.body.cicloId;
         minuta.updated_at = moment();
 
         minuta.save(function(err) {
