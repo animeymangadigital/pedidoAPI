@@ -30,6 +30,7 @@ var modelProducto = require('./models/productos')(app, mongoose);
 
 var userCtrl = require('./controllers/users');
 var authCtrl = require('./controllers/authenticate');
+var pedidoCtrl = require('./controllers/pedidos');
 var cicloCtrl = require('./controllers/ciclos');
 var minutaCtrl = require('./controllers/minutas');
 var productoCtrl = require('./controllers/productos');
@@ -43,10 +44,15 @@ app.use(router);
 
 // API routes
 var routes = express.Router();
+/*routes.route('/')
+    .get(authCtrl.saveProducts)*/
+
+routes.route('/pedidos')
+    .post(pedidoCtrl.pedidos)
 
 routes.route('/users')
     .get(middleware.ensureAuthenticated, userCtrl.findAllUsers)
-    .post(middleware.ensureAuthenticated,userCtrl.addUser);
+    .post(middleware.ensureAuthenticated, userCtrl.addUser);
 
 routes.route('/users/:id')
     .get(middleware.ensureAuthenticated, userCtrl.findById)
@@ -57,7 +63,7 @@ routes.route('/login')
     .post(authCtrl.login);
 
 routes.route('/keys')
-    .post(middleware.ensureAuthenticated,authCtrl.addkey);
+    .post(middleware.ensureAuthenticated, authCtrl.addkey);
 
 routes.route('/keys/:id')
     .delete(middleware.ensureAuthenticated, authCtrl.deleteKey);

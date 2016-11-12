@@ -1,0 +1,83 @@
+[
+	{
+		"minuta": "5825e2d5cea634120018e491",
+		"title": "leche",
+		"de7a12": "100",
+		"de13a17": "120",
+		"de18a49": "120",
+		"unidad": "lt",
+		"type": "lacteos"
+	},
+	{
+		"minuta": "5825e2d5cea634120018e491",
+		"title": "panela",
+		"de7a12": "14",
+		"de13a17": "17",
+		"de18a49": "17",
+		"unidad": "kg",
+		"type": "abarrotes"
+	},
+	{
+		"minuta": "5825e2d5cea634120018e491",
+		"title": "chocolate en polvo",
+		"de7a12": "12",
+		"de13a17": "14",
+		"de18a49": "14",
+		"unidad": "kg",
+		"type": "abarrotes"
+	},
+	{
+		"minuta": "5825e2d5cea634120018e491",
+		"title": "pan-50g (und)",
+		"de7a12": "1",
+		"de13a17": "0",
+		"de18a49": "0",
+		"unidad": "und",
+		"type": "panaderia"
+	},
+	{
+		"minuta": "5825e2d5cea634120018e491",
+		"title": "pan-70g (und)",
+		"de7a12": "0",
+		"de13a17": "1",
+		"de18a49": "1",
+		"unidad": "und",
+		"type": "panaderia"
+	},
+	{
+		"minuta": "5825e2d5cea634120018e491",
+		"title": "mantequilla",
+		"de7a12": "5",
+		"de13a17": "6",
+		"de18a49": "6",
+		"unidad": "kg",
+		"type": "abarrotes"
+	},
+	{
+		"minuta": "5825e2d5cea634120018e491",
+		"title": "huevo",
+		"de7a12": "55",
+		"de13a17": "55",
+		"de18a49": "55",
+		"unidad": "huevo",
+		"type": "abarrotes"
+	},
+	{
+		"minuta": "5825e2d5cea634120018e491",
+		"title": "papaya - fruta",
+		"de7a12": "130",
+		"de13a17": "150",
+		"de18a49": "180",
+		"unidad": "kg",
+		"type": "frutas"
+	},
+	{
+		"minuta": "5825e2d5cea634120018e491",
+		"title": "banano - fruta",
+		"de7a12": "80",
+		"de13a17": "90",
+		"de18a49": "100",
+		"unidad": "kg",
+		"type": "frutas"
+	}
+]

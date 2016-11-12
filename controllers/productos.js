@@ -38,7 +38,7 @@ exports.addProducto = function(req, res) {
         updated_at: moment()
     });
 
-    producto.save(function(err, capitulo) {
+    producto.save(function(err, producto) {
         if (err) return res.status(500).jsonp({
             success: false,
             message: err.message
