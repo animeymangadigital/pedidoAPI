@@ -7,7 +7,7 @@ exports = module.exports = function(app, mongoose) {
 		de18a49: 	{ type: Number },
 		unidad:	{ type: String },
 		type:	{ type: String },
-		minutaId : {type: Schema.ObjectId, ref: 'Minuta'},		
+		minutaId : {type: mongoose.Schema.ObjectId, ref: 'Minuta'},		
 		updated_at: { type: Date }
 	});
 
