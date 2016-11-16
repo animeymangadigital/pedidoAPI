@@ -4,7 +4,7 @@ exports = module.exports = function(app, mongoose) {
 		title: 		{ type: String },
 		cicloId : {type: mongoose.Schema.ObjectId, ref: 'Ciclo'},
 		updated_at: { type: Date },
-		productos : [{type: mongoose.Schema.ObjectId, ref: 'Producto'}]
+		productos : { type : Array , "default" : [] }		
 	});
 
 	mongoose.model('Minuta', minutaSchema);

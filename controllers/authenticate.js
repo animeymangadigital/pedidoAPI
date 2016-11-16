@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var Keys = mongoose.model('Key');
 var Users = mongoose.model('User');
 var Productos = mongoose.model('Producto');
+var Minutas = mongoose.model('Minuta');
 var moment = require('moment');
 
 //POST - Insert a new key in the DB
@@ -86,28 +87,42 @@ exports.deleteKey = function(req, res) {
         })
     });
 };
-/*
+
 exports.saveProducts = function(req, res) {
     var obj = require("./codebeautify.json");
     obj.forEach(function(product) {
-      var producto = new Productos({
-          title: product.title,
-          de7a12 : product.de7a12,
-          de13a17: product.de13a17,
-          de18a49: product.de18a49,
-          unidad: product.unidad,
-          type: product.type,
-          minutaId: product.minuta,
-          updated_at: moment()
-      });
-
-      producto.save(function(err, capitulo) {
-          if (err) return res.status(500).jsonp({
-              success: false,
-              message: err.message
-          });
-      });
+        var producto = new Productos({
+            title: product.title,
+            de7a12 : product.de7a12,
+            de13a17: product.de13a17,
+            de18a49: product.de18a49,
+            unidad: product.unidad,
+            type: product.type,
+            minutaId: product.minuta,
+            updated_at: moment()
+        });
+        producto.save(function(err, producto) {
+            if (err) return res.status(500).jsonp({
+                success: false,
+                message: err.message
+            });
+            Minutas.findById(producto.minutaId, function(err, minuta) {
+                if (err) return res.status(500).jsonp({
+                    success: false,
+                    message: err.message
+                });
+                minuta.productos.push(producto);
+                minuta.save(function(err) {
+                    if (err) return res.status(500).jsonp({
+                        success: false,
+                        message: err.message
+                    });
+                });
+            });
+        });
     });
 
-    res.status(200).jsonp({done:'done'});
-};*/
+    res.status(200).jsonp({
+        done: 'done'
+    });
+};

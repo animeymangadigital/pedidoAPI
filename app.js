@@ -44,11 +44,12 @@ app.use(router);
 
 // API routes
 var routes = express.Router();
-/*routes.route('/')
-    .get(authCtrl.saveProducts)*/
+
+routes.route('/masiveSave')
+    .post(middleware.ensureAuthenticated,authCtrl.saveProducts)
 
 routes.route('/pedidos')
-    .post(pedidoCtrl.pedidos)
+    .post(middleware.ensureAuthenticated,pedidoCtrl.pedidos)
 
 routes.route('/users')
     .get(middleware.ensureAuthenticated, userCtrl.findAllUsers)
