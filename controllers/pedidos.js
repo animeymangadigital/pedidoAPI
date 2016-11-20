@@ -26,9 +26,9 @@ exports.pedidos = function(req, res) {
             var d18a49 = 0;
             var exists = false;
             if (item.unidad === 'kg' || item.unidad === 'lt') {
-                d7a12 = parseFloat(item.de7a12 / 1000).toFixed(2);
-                d13a17 = parseFloat(item.de13a17 / 1000).toFixed(2);
-                d18a49 = parseFloat(item.de18a49 / 1000).toFixed(2);
+                d7a12 = (item.de7a12 / 1000).round(2);
+                d13a17 = (item.de13a17 / 1000).round(2);
+                d18a49 = (item.de18a49 / 1000).round(2);
 
                 for (var prod of productosArray) {
                     if (prod.title === item.title) {
@@ -55,9 +55,9 @@ exports.pedidos = function(req, res) {
                 }
             } else {
                 if (item.unidad === 'huevo') {
-                    d7a12 = parseFloat(item.de7a12 / 55).toFixed(2);
-                    d13a17 = parseFloat(item.de13a17 / 55).toFixed(2);
-                    d18a49 = parseFloat(item.de18a49 / 55).toFixed(2);
+                    d7a12 = (item.de7a12 / 55).round(2);
+                    d13a17 = (item.de13a17 / 55).round(2);
+                    d18a49 = (item.de18a49 / 55).round(2);
 
                     for (var prod of productosArray) {
                         if (prod.title === item.title) {
