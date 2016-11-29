@@ -31,7 +31,7 @@ exports.pedidos = function(req, res) {
                 d18a49 = item.de18a49 / 1000;
 
                 for (var prod of productosArray) {
-                    if (prod.title === item.title) {
+                    if (prod.title.trim() === item.title.trim()) {
                         prod.de7a12 = prod.de7a12 + d7a12;
                         prod.de13a17 = prod.de13a17 + d13a17;
                         prod.de18a49 = prod.de18a49 + d18a49;
@@ -42,7 +42,7 @@ exports.pedidos = function(req, res) {
 
                 if(!exists){
                    var prod = {
-                       title: item.title,
+                       title: item.title.trim(),
                        unidad:item.unidad,
                        type: item.type,
                        de7a12:d7a12,
@@ -60,7 +60,7 @@ exports.pedidos = function(req, res) {
                     d18a49 = item.de18a49 / 55;
 
                     for (var prod of productosArray) {
-                        if (prod.title === item.title) {
+                        if (prod.title.trim() === item.title.trim()) {
                             prod.de7a12 = prod.de7a12 + d7a12;
                             prod.de13a17 = prod.de13a17 + d13a17;
                             prod.de18a49 = prod.de18a49 + d18a49;
@@ -71,7 +71,7 @@ exports.pedidos = function(req, res) {
 
                     if(!exists){
                        var prod = {
-                           title: item.title,
+                           title: item.title.trim(),
                            unidad:item.unidad,
                            type: item.type,
                            de7a12:d7a12,
@@ -85,7 +85,7 @@ exports.pedidos = function(req, res) {
 
                 } else {
                     for (var prod of productosArray) {
-                        if (prod.title === item.title) {
+                        if (prod.title.trim() === item.title.trim()) {
                             prod.de7a12 = prod.de7a12 + item.de7a12;
                             prod.de13a17 = prod.de13a17 + item.de13a17;
                             prod.de18a49 = prod.de18a49 + item.de18a49;
@@ -96,7 +96,7 @@ exports.pedidos = function(req, res) {
 
                     if(!exists){
                        var prod = {
-                           title: item.title,
+                           title: item.title.trim(),
                            unidad:item.unidad,
                            type: item.type,
                            de7a12:item.de7a12,
