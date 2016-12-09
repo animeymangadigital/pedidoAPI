@@ -29,6 +29,7 @@ exports.findById = function(req, res) {
 exports.addCiclo = function(req, res) {
     var ciclo = new Ciclos({
         title: req.body.title,
+        title_for_excel: req.body.titleForExcel,
         updated_at: moment()
     });
 
@@ -45,6 +46,7 @@ exports.addCiclo = function(req, res) {
 exports.updateCiclo = function(req, res) {
     Ciclos.findById(req.params.id, function(err, ciclo) {
         ciclo.title = req.body.title;
+        ciclo.title_for_excel = req.body.titleForExcel;
         ciclo.updated_at = moment();
 
         ciclo.save(function(err) {
