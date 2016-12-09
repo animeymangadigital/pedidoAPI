@@ -42,7 +42,8 @@ exports.login = function(req, res) {
 
                         // return the information including token as JSON
                         res.status(200).jsonp({
-                            token: token
+                            token: token,
+                            name: user.name
                         });
                     });
                 } else {
