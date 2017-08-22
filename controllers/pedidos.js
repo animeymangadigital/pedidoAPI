@@ -127,7 +127,7 @@ exports.pedidos = function (req, res) {
     send({
             body: req.body
         })
-        .then(() => {
+        .then((productosArray) => {
             res.status(200).jsonp(productosArray);
         });
 };
