@@ -30,12 +30,6 @@ exports.pedidos = function (req, res) {
             });
         });
 
-        let template = awaits(db.emailTemplates.find({
-            where: {
-                type: data.templateType
-            }
-        }));
-
         array.forEach(function (item) {
             var d7a12 = 0;
             var d13a17 = 0;
