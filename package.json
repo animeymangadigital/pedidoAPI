@@ -5,6 +5,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "asyncawait": "^1.0.6",
     "bcrypt": "0.8.7",
     "body-parser": "1.5.1",
     "cors": "2.8.1",
