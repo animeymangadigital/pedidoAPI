@@ -7,7 +7,7 @@ var express = require("express"),
     middleware = require('./middleware');
 
 // Connection to DB
-mongoose.connect(process.env.dburl, function(err, res) {
+mongoose.connect(/*process.env.dburl*/'mongodb://foodorder:foodorder@ds147777.mlab.com:47777/pedidos', function(err, res) {
     if (err) throw err;
     console.log('Connected to Database');
 });

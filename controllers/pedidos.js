@@ -6,26 +6,31 @@ const async = require('asyncawait/async');
 const awaits = require('asyncawait/await');
 
 exports.pedidos = function (req, res) {
-
+    console.log('-------------------entre-----');
     let send = async((body) => {
+        console.log(body);
         var de7a12  = body.de7a12;
         var de13a17 = body.de13a17;
         var de18a49 = body.de18a49;
+        var cicloId = body.cicloId;
         var productosArray = [];
         var array = [];
+        var minutas = [];
 
-        let minutas = awaits(Minutas.find({
-            cicloId: body.cicloId
-        }));
 
-        minutas.forEach(function (minuta) {
-            console.log('-------------------minuta-----',minuta);
+        let minutasList = awaits(Minutas.find());
+        minutasList.map((minuta) => {
+            minuta['productos'] = [];
+            if (String(minuta.cicloId) === String(cicloId)) {
+                minutas.push(minuta);
+            }
+        });
+
+        minutas.forEach(function (minuta) {            
             let productos = awaits(Productos.find({
                 minutaId: minuta._id
             }));
-            console.log('-------------------productos-----',productos);
-            productoss.forEach(function (producto) {
-                console.log('-------------------producto-----',producto);
+            productos.forEach(function (producto) {                
                 producto.de7a12 = producto.de7a12 * de7a12;
                 producto.de13a17 = producto.de13a17 * de13a17;
                 producto.de18a49 = producto.de18a49 * de18a49;
@@ -127,9 +132,7 @@ exports.pedidos = function (req, res) {
         return productosArray;
     });
 
-    send({
-            body: req.body
-        })
+    send(req.body)
         .then((productosArray) => {
             res.status(200).jsonp(productosArray);
         });
