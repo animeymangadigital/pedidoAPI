@@ -19,10 +19,13 @@ exports.pedidos = function (req, res) {
         }));
 
         minutas.forEach(function (minuta) {
+            console.log('-------------------minuta-----',minuta);
             let productos = awaits(Productos.find({
                 minutaId: minuta._id
             }));
+            console.log('-------------------productos-----',productos);
             productoss.forEach(function (producto) {
+                console.log('-------------------producto-----',producto);
                 producto.de7a12 = producto.de7a12 * de7a12;
                 producto.de13a17 = producto.de13a17 * de13a17;
                 producto.de18a49 = producto.de18a49 * de18a49;
